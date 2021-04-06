@@ -42,7 +42,7 @@ Lightly touch on how our JavaScript  file is being rendered  by our script tag i
 Open up your dev tools and give a quick tour, touching on the element and network tabs but mostly focus on the console. 
 
 Test out some code in the console and do a quick review of some primitive types and operations  
-```
+```javascript
 typeof 'cat'
 // "string"
 
@@ -81,7 +81,7 @@ let cat = 'rose'
 
 ### Demo JavaScript function definition - (10 minutes)
 Now open your index.js and start by adding a console.log at the top and showing it in the browser console. 
-```
+```javascript
 console.log('hi computer')
 
 ```
@@ -89,7 +89,7 @@ console.log('hi computer')
 The rest of our code will live in here. We will be making an app to help run a Flatiron podcast. We will be building out functions that will log information to our console, such as guest name, episode topics and so on.... Lets start by making a function introduction. Review the difference between a function definition and function invocation 
   
 
-```
+```javascript
 function introduction(){
      console.log(`Thanks for tuning in to the Flatiron Podcast, where we talk about techniques for learning coding`)
 } 
@@ -101,7 +101,7 @@ console.log(introduction()) //invocation
 Remove or comment out console.logs as you go to keep console clear
 Now let’s do the same but with arrow syntax!
 
-```
+```javascript
 let guestAppearance = () => {
     let guest = prompt('Welcome to the Flatiron Podcast, what is your name?');
     //The return value here will be passed on 
@@ -115,13 +115,13 @@ guestAppearance()
 
 Next, lets show off how to do one line implicit returns with arrow functions.
 
-```
+```javascript
 let sayHi = () => console.log('Hello, happy to be here thanks for inviting me to come on your podcast')
 ```
 
 Now that we’ve covered the basics with function definition let’s start adding arguments and parameters. Now is a good time to talk about the difference between the two.
  
- ```
+ ```javascript
  let whereToListen = location => console.log(`To hear more episodes go to ${location}`)
 
  let thisWeeksSubject = (week, topic) => console.log(`It's week ${week} and this weeks topic will be...${topic}`)
@@ -169,7 +169,7 @@ function payGuest(base) {
 
 We are going to cover, global, functional, and block scope next. Start by creating a variable in the global scope. Write a function, recordShow(), and create a variable in the scope of the function. console.log both variables inside of functional scope to show that it has access to both variables. Next, console.log both the variables in the global scope to show that we only have access to the variable we defined in the global scope.
 
-```
+```javascript
 //host is in global scope
 let host = 'Rose'
 
@@ -188,7 +188,7 @@ console.log(epName)
 
 This is a good opportunity to cover the issue with var. Since var allows us to access variables in block scope, it has the potential of causing bugs in the future. It’s best practice to use let in most situations you would use var.
 
-```
+```javascript
 if('cat'=='cat'){
     //cookie and cookie2 are in block scope
     var cookie = 'peanut butter'
@@ -201,7 +201,7 @@ console.log(cookie2)
 
 Finish this section off by defining a variable that can't be over written with const. 
 
-```
+```javascript
 const producer = 'Paul'
 //producer = 'bill'
 ```
@@ -212,7 +212,7 @@ The callstack gives us hierarchy and order of operations for function calls.
 When something is invoked it's added to the callstack and it's not removed until it's resolved. 
 
 
-```
+```javascript
 function twoThree(){
     return `${testingOne()}, two three`
 }

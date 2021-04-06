@@ -45,22 +45,23 @@
 ## Outline
 ```txt
 5 min - The Set up
-5 min - Arrays and Objects 
-5 min - Access array values
+3 min - Arrays and Objects 
+2 min - Access array values
 5 min - Access object properties 
 5 min - Nested data 
 15 min - Loops for, do, while 
 15 min - for...in and for...of 
+10 min - Demo callbacks and higher order functions
 15 min - Array Methods
 10 min - Conditionals
 ---
-80 min
+85 min
 ```
 ### The Set up - (3 minutes)
 Lightly review how our JavaScript file is being rendered by our script tag in our index.html. We went over this in a previous lecture and will do a deeper dive on it soon so this can be a quick review.
 
-###  Arrays and Objects - (5 minutes)
-Cover the similarities and differences between Arrays and Objects. Dive as deep as you feel is necessary but here are some key points.
+###  Arrays and Objects - (3 minutes)
+Cover the similarities and differences between Arrays and Objects with emphasis on Objects, as Arrays were covered yesterday. Dive as deep as you feel is necessary but here are some key points.
  
 Objects are an abstract representation of something. It consists of properties, which are key-value pairs. To add a new property to an object you assign it a new key, with a value. A cakeOrder is an object with the properties id, flavor, size, amount, and price. 
 
@@ -81,7 +82,8 @@ let cakeOrder1 = {
 
 ```
 
-### Access array values - (5 minutes)
+### Access array values - (2 minutes)
+Quickly review this topic which was covered yesterday
 An array’s elements can be accessed through bracket notation, they can be read or resigned new values. push() adds elements to the end of an array, while pop() removes them. unshift() adds elements to the front while shift() removes them from the front.
 Slice and Splice can also be touched on here.
 
@@ -169,7 +171,7 @@ const daysOrders = [
     }
 ]
 //Check for understanding 
-// How do I access then price of the second cake with dot notation?
+// How do I access the price of the second cake with dot notation?
 // How do I update the size of the first cake from 6" to 9"?
 // How do I access just the second cake?
 // How do I access all the values from the first cake at once?
@@ -220,7 +222,7 @@ console.log(findFlavor(cakeNames,'Fish'))
 ```
 
 ### for...in and for...of - (10 minutes)
-for...in and for…of will loop for every element in the array or property in an object
+for...of will loop for every element in the array and for...in for every property in an object
 ```javascript
 //for...of
 function downCaseCakes(){
@@ -240,6 +242,44 @@ function printObjProps(){
   
 }
 printObjProps()
+```
+
+### Demo callbacks and higher order functions - (10 minutes)
+We will be passing our first callback so now is a great time to cover what makes JavaScript functions first-class.
+
+What makes functions first-class objects is their ability to be passed as arguments and returned by other functions like any other variable. 
+
+Lets define a function that bakes a cake and pass it our bake function. Lets demo a different HOF with the same callback. 
+
+bakeCake here is our Higher Order function as the one taking the callback as an argument, while bake and our anonymous function are both examples of callbacks 
+
+<!-- As our last example lets build a function to payGuest that takes a base pay. This time we will define and return the function within the functional scope of payGuest -->
+```javascript
+//Higher order functions and callbacks
+
+// higher order function (HOF)
+function bakeCake(callback){
+    // console.log('From inside of the HOF')
+    // in this case the HOF will return what the callback returns
+    return callback('cake')
+}
+const bakePudding = cb => cb('pudding')
+// callback
+
+const bake = str => {
+    return `Hello Bakers today we will be baking ${str}`
+}
+
+bakeCake(bake)
+
+// function buyCake(price) {
+//      //anonymous function
+//     //defined and invoked 
+//     return function(amount) {
+//         console.log('Your total is: ' + amount * price)
+//     }
+// }
+
 ```
 
 ### Array Methods - (15 minutes)
