@@ -66,7 +66,7 @@ Objects are an abstract representation of something. It consists of properties, 
 
 Arrays are object-like with some very important differences.  An array is a list of elements. The elements are stored at a specific index location in an array. Elements can be pushed things to the end of the list and pop them off. Elements can be added to the start of the list by shifting everything down or removed from the front by unshifting all the elements up. You can reassign a value at a given index.    
 
-```
+```javascript
 // Array
 let cakeNames = ['Chocolate Porter', 'Earl Grey', 'Salted Carmel', 'Vanilla', 'Carrot', 'Lemon Cream', 'Rose', 'Pink Champagne', 'Raspberry Cardamon Rose']
 
@@ -85,7 +85,7 @@ let cakeOrder1 = {
 An array’s elements can be accessed through bracket notation, they can be read or resigned new values. push() adds elements to the end of an array, while pop() removes them. unshift() adds elements to the front while shift() removes them from the front.
 Slice and Splice can also be touched on here.
 
-```
+```javascript
 //Access array values through index
     console.log(cakeNames[0])
     console.log(cakeNames[2])
@@ -110,7 +110,7 @@ Slice and Splice can also be touched on here.
 ### Access object properties  - (5 minutes)
 Access object property through keys with bracket and dot notation. All of the object keys and values can also be grabbed and returned in an array through Object.keys, Object.values and Object.entries
 
-```
+```javascript
 //Access object property through key
 console.log(cakeOrder1['flavor'])
 console.log(cakeOrder1.flavor)
@@ -137,7 +137,7 @@ console.log(Object.entries(cakeOrder1))
 Time to cover nested data. Build an array of objects and take a moment to check for understanding before we move on.  
 
 
-```
+```javascript
 const daysOrders = [
     {
         id: 13,
@@ -181,7 +181,7 @@ Next, we will be demonstrating loops, all loops will continue to execute a blog 
 
 Loops can be exited early with a return or break statement 
 
-```
+```javascript
 function printCakeNames(arr){
     for(let i = 0; i < arr.length; i++ ){
         console.log(i)
@@ -221,7 +221,7 @@ console.log(findFlavor(cakeNames,'Fish'))
 
 ### for...in and for...of - (10 minutes)
 for...in and for…of will loop for every element in the array or property in an object
-```
+```javascript
 //for...of
 function downCaseCakes(){
     for(let item of cakeNames){
@@ -248,14 +248,14 @@ Check for students’ understanding of callbacks and higher-order functions. A b
 
 .forEach is an Array method that takes a callback and will invoke the callback for every item in the array. It returns undefined 
 
-```
+```javascript
 //.forEach()
 daysOrders.forEach(cake => console.log(cake))
 ```
 
 .map is an Array method that takes a callback, it will invoke the callback for every element in the array but this time it will return a new array with each element now being the return value from the callback.
 
-```
+```javascript
 //.map()
 let justCake = daysOrders.map(() => 'cake')
 let cakePrices = daysOrders.map(cake => cake.price)
@@ -267,7 +267,7 @@ console.log(cakePrices)
 .filter will take a callback that returns true or false. It invokes the callback for every element in the array. It will return a new array fill of elements that returned true. It returns an empty array if nothing returns true.
  
 
-```
+```javascript
 //.filter() 
 let cupcakes = daysOrders.filter(cake => cake.size == 'cup cake')
 console.log(cupcakes)
@@ -277,7 +277,7 @@ console.log(cupcakes)
 
 .findIndex has the same behavior as .find but it returns the index of the found element instead of the value. 
 
-```
+```javascript
 //.find()
 let expensiveCake = daysOrders.find(cake => cake.price > 45 )
 console.log(expensiveCake)
@@ -288,7 +288,7 @@ let pinkChampagneIndex = daysOrders.findIndex(cake => cake.flavor == 'Pink Pink 
 
 .reduce() needs a special callback called a reducer, it will invoke the reducer on every element in the array and return a single output. The reducer has an accumulator and a current value. It can also take an initial value as a second parameter.
 
-```
+```javascript
 let daysTotal = daysOrders.reduce((a,b) => { 
     return a + b.price
 },0)
@@ -304,7 +304,7 @@ console.log(oneString)
 ### Conditionals - (10 minutes)
 Students should be familiar with ifs, if else but it doesn’t hurt to do a quick review or check for understanding
 
-```
+```javascript
 function checkFlavor(flavor){
     let cake = cakeNames.find(cake => cake.flavor == flavor)
     if(!cake){
@@ -326,7 +326,7 @@ function checkSize(size){
 
 Switch statements evaluate an expression and match its value to possible cases. If none of the cases are true it can run a default case. 
 
-```
+```javascript
 function totalPrice(amount, size){
     switch(size){
         case 'cup cake':
