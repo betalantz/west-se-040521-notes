@@ -273,7 +273,7 @@ Discuss each results.
 
 #### CFU:
 
-Ask students to open POSTMAN and make a `GET` request for user information with id = 3.
+Ask students to open POSTMAN and make a `GET` request for user information with id = 2.
 
 Give them some time to create `db.json` file and install JSON-server package.
 
