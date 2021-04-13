@@ -170,6 +170,7 @@ actually get the data and have parsed it from a response object into a native
 javascript object. In this callback, `animalData` will be an array of animals
 that we got from the server.
 
+# CFU
 ## Check for Understanding - `fetch` (15 minutes)
 
 To give students practice using fetch syntax, give them this [exercise](https://codesandbox.io/s/js-fetch-practice-exercise-ig9u2?file=/README.md).
@@ -291,7 +292,9 @@ fetch(url)
   })
 ```
 
-### `catch`
+
+
+### `catch` (optional depending on how well students are grasping promises)
 
 > Working with catch can be treated as bonus content, if students are struggling with the code to this point.
 
@@ -317,6 +320,7 @@ fetch("https://www.google.com")
 //    at fetch.then.res
 ```
 
+# CFU
 ## Check for Understanding - Asynchronous Code (10 minutes)
 
 Let's return to some tracing examples.
