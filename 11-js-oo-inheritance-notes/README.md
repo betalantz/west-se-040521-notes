@@ -23,21 +23,103 @@
 
 Class discussion on these objects, focusing on behavior and properties that can be shared across all, some, or none.
 
+```js
+const person = {
+    name: string,
+    age: number,
+    greet: fn
+}
+const teacher = {
+    subject: string,
+    school: string,
+    lecture: fn
+}
+const student = {
+    gradeLvl: number,
+    school: string,
+    gpa: number,
+    study: fn
+}
+```
+
 ## Inheritance using extends
 
 Demonstration
 
+```js
+class Person {
+    constructor(name, age){
+        this.name = name
+        this._age = age
+    }
+
+    greet(){
+        return `Hi! My name is ${this.name}.`
+    }
+}
+
+class Student extends Person {
+   
+    study(){
+        return `${this.name} is hitting the books!`
+    }
+}
+```
+
 ## Check for understanding
 
-How does a class extend another class? Show a class with an empty constructor
+How does a class extend another class? Build a child class (Teacher) with no constructor and one instance menthod
+
+```js
+class Teacher extends Person {
+
+    lecture(){
+        return `${this.name} is explaining a concept.`
+    }
+}
+```
 
 ## Discussion: How will we add more behavior and different properties to our child class?
 
 ## Using the Super keyword
 
-Use super to add addition properties to an object of child class - inside constructor
-Use super to add addition functionality to an other instace method
+Demo using super to add additional properties to an object of child class - inside constructor
+<!-- Use super obj outside constructor to add additional functionality to another instance method [required explanation and use of setters/getters] -->
+
+```js
+class Student extends Person {
+    constructor(name, age, gradeLvl, school, gpa){
+        super(name, age)
+        this.gradeLvl = gradeLvl
+        this.school = school
+        this.gpa = gpa
+    }
+
+    study(){
+        this.gpa += .5
+        return `Your gpa is now ${this.gpa}`
+    }
+
+}
+```
 
 ## Check for understanding
 
-Class driven development. Create a new parent child relationship?
+Ask students to add unique properties to Teacher using super in its constructor
+
+```js
+class Teacher extends Person {
+
+    constructor(name, age, subject, school){
+        super(name, age)
+        this.subject = subject
+        this.school = school
+    }
+
+    lecture(){
+        return `${this.name} is explaining a concept.`
+    }
+}
+```
+
+Time permitting, do some Class driven development. Create a new parent/child relationship?
