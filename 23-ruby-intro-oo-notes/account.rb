@@ -84,7 +84,7 @@ class BankAccount
     #     @balance += amount
     # end
 
-    # this is a custom method which overwrites the built-in Object.to_s method. (replacing a built-in method is called 'monkeywrenching'; use with CAUTION)
+    # this is a custom method which overwrites the built-in Object.to_s method. (replacing a built-in method is called 'monkeypatching'; use with CAUTION)
     def to_s
         puts "Username: #{@username}"
         puts "Balance: #{@balance}"
