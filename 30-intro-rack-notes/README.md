@@ -87,7 +87,7 @@ Inspect the environment hash by printing it to the console. This is hard to read
 Now we can inspect the path with req.path, use conditionals to respond to different types of paths with the match method req.path.match("/"), write a basic template as the body of the response with HTML, take student suggestions and play around. This is the beginning of actual web development!
 
 
-```
+```ruby
     class App
         def call(env)
           resp = Rack::Response.new
@@ -110,12 +110,12 @@ Make a request using Postman to the rack server. Show the response as HTML in it
 
 ### Making Request from a React Client
 Build a quick React app using create react app and make a GET request to the rack server. Console log the response and walk through the request-response lifecycle once more.  
-```
+```bash
     npx create-react-app rack-and-react-app
     rack-and-react-app
     npm start
-
-
+```
+```js
     // In rack-and-react-app APP, use componentDidMount() or the useEffect() hook to make a fetch as APP mounts for the first time
        
        async () => {
