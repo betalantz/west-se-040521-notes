@@ -71,6 +71,8 @@ Lastly, we will require the app.rb file in our config.ru file and add the line r
 ```ruby
 # config.ru
 require_relative "./app"
+# ...
+run App.new
 ```
 ```bash
 rackup
@@ -88,17 +90,21 @@ Now we can inspect the path with req.path, use conditionals to respond to differ
 
 
 ```ruby
-    class App
-        def call(env)
-          resp = Rack::Response.new
-          req = Rack::Request.new(env)
-
-         if req.path.match(/hello/)
-           return [200, { "Content-Type" => "application/json" }, [{:message => "hello world!" }.to_json]]
-         end
-        end
+class App
+    def call(env)
+      resp = Rack::Response.new
+      req = Rack::Request.new(env)
+      headers = {
+        "Content-Type" => "application/json"
+      }
+      if req.path.match(/hello/)
+        return [200, headers, [{ :message => "hello world!" }.to_json]]
+      else
+        resp.write "Path not found"
+      end
+      resp.finish
     end
-
+end
 
 ```
 
@@ -115,14 +121,31 @@ Build a quick React app using create react app and make a GET request to the rac
     rack-and-react-app
     npm start
 ```
+
+Note that you'll get CORS errors when sending req/res on the same domain (localhost), so you'll need to use the cors gem to allow the traffic.
+```bash
+  bundle add rack-cors
+```
+```ruby
+# in config.ru
+require 'rack/cors'
+#...
+use Rack::Cors do
+    allow do
+        origins '*'
+        resource '/*', headers: :any, methods: :get
+    end
+end
+```
+Finally:
 ```js
     // In rack-and-react-app APP, use componentDidMount() or the useEffect() hook to make a fetch as APP mounts for the first time
        
-       async () => {
-            const res = await fetch(RACK_URL);
-            let data = await res.json()
-            console.log(data);
-        }
-
+    async function fetchData() {
+      const res = await fetch(RACK_URL + '/hello')
+      const data = await res.json()
+      return data
+    }
+    fetchData().then(console.log)
 
 ```
