@@ -1,0 +1,6 @@
+<h1>All Farmers</h1>
+<% @farmers.map do |farmer| %>
+  <ul>
+    <li><%= link_to farmer.name, farmer %></li>
+  </ul>
+<% end %>
