@@ -2,6 +2,7 @@ class Appointment < ApplicationRecord
   belongs_to :doctor
   belongs_to :patient
 
+  validates :time, uniqueness: {scope: :doctor}
   validate :not_in_past
 
   def not_in_past
